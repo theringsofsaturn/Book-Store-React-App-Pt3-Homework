@@ -1,4 +1,5 @@
 import React from "react";
+import CommentList from "./CommentList";
 
 class CommentArea extends React.Component {
   state = {
@@ -18,7 +19,7 @@ class CommentArea extends React.Component {
         }
       );
       let data = response.json();
-      console.log(data);
+      console.log("Data", data);
       this.setState({ comments: data });
     } catch (error) {
       console.log(error);

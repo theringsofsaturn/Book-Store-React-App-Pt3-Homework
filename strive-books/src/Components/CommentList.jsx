@@ -1,9 +1,9 @@
 import ListGroup from "react-bootstrap/ListGroup";
 
-const CommentList = ({ props }) => (
+const CommentList = ({ commentsProps }) => (
   <ListGroup>
     {commentsProps.map((element) => {
-      <ListGroup.Item>Cras justo odio</ListGroup.Item>;
+      <ListGroup.Item key={element._id}>Cras justo odio</ListGroup.Item>;
     })}
   </ListGroup>
 );
