@@ -1,5 +1,6 @@
 import React from "react";
 import CommentList from "./CommentList";
+import AddComment from "./AddComment";
 
 class CommentArea extends React.Component {
   state = {
@@ -28,7 +29,7 @@ class CommentArea extends React.Component {
   render() {
     return (
       <div>
-        <AddComment/>
+        <AddComment />
         <CommentList commentsProps={this.state.comments} />
       </div>
     );
