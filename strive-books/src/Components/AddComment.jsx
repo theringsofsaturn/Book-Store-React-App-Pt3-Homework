@@ -5,3 +5,5 @@ class AdComment extends React.Component {
     return <div>Add Comment</div>;
   }
 }
+
+export default AdComment;
