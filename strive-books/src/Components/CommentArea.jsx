@@ -5,7 +5,12 @@ class CommentArea extends React.Component {
     comments: [], // empty array variable to receive the array of comments from the API
   };
 
-  componentDidMount = () => {};
+  componentDidMount = async () => {
+    try {
+    } catch (error) {
+        console.log(error)
+    }
+  };
   render() {
     return <div>{/* <CommentList comments = {}/> */}</div>;
   }
