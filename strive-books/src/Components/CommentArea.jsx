@@ -19,12 +19,13 @@ class CommentArea extends React.Component {
       );
       let data = response.json();
       console.log(data);
+      this.setState({ comments: data });
     } catch (error) {
       console.log(error);
     }
   };
   render() {
-    return <div>{/* <CommentList comments = {}/> */}</div>;
+    return <div>{<CommentList comments={this.state.comments} />}</div>;
   }
 }
 
