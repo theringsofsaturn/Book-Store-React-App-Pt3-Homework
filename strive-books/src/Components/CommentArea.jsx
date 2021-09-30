@@ -25,7 +25,7 @@ class CommentArea extends React.Component {
     }
   };
   render() {
-    return <div>{<CommentList comments={this.state.comments} />}</div>;
+    return <div>{<CommentList commentsProps={this.state.comments} />}</div>;
   }
 }
 
