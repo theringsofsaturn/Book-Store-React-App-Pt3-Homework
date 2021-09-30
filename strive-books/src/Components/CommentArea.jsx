@@ -18,7 +18,7 @@ class CommentArea extends React.Component {
           },
         }
       );
-      let data = response.json();
+      let data = await response.json();
       console.log("Data", data);
       this.setState({ comments: data });
     } catch (error) {
@@ -26,7 +26,12 @@ class CommentArea extends React.Component {
     }
   };
   render() {
-    return <div>{<CommentList commentsProps={this.state.comments} />}</div>;
+    return (
+      <div>
+        <AddComment/>
+        <CommentList commentsProps={this.state.comments} />
+      </div>
+    );
   }
 }
 

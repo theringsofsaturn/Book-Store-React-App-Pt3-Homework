@@ -1,10 +1,12 @@
 import ListGroup from "react-bootstrap/ListGroup";
+import SingleComment from "./SingleComment";
 
 const CommentList = ({ commentsProps }) => (
   <ListGroup>
-    {commentsProps.map((element) => {
-      <ListGroup.Item key={element._id}>Cras justo odio</ListGroup.Item>;
-    })}
+    {console.log({ commentsProps })}
+    {commentsProps.map((element) => (
+      <SingleComment comment={element} />
+    ))}
   </ListGroup>
 );
 
