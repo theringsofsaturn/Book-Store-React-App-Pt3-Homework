@@ -7,8 +7,13 @@ class CommentArea extends React.Component {
 
   componentDidMount = async () => {
     try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/comments/{ASIN}"
+      );
+      let data = response.json();
+      console.log(data);
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
   };
   render() {
