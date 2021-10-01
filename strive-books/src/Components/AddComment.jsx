@@ -19,16 +19,29 @@ class AdComment extends React.Component {
               type="text"
               placeholder="Add comment here"
               value={this.state.commentObj.comment}
-              onChange={e => this.setState({
+              onChange={(e) =>
+                this.setState({
                   comment: {
-                      
-                  }
-              })}
+                    ...this.state.commentObj,
+                    comment: e.target.value,
+                  },
+                })
+              }
             />
           </Form.Group>
           <Form.Group>
             <Form.Label>Rating</Form.Label>
-            <Form.Control as="select" value={this.state.commentObj.rate}>
+            <Form.Control
+              as="select"
+              onChange={(e) =>
+                this.setState({
+                  comment: {
+                    ...this.state.commentObj,
+                    rate: e.target.value,
+                  },
+                })
+              }
+            >
               <option>1</option>
               <option>2</option>
               <option>3</option>
