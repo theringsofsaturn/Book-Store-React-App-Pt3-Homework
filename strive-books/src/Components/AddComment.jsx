@@ -11,11 +11,11 @@ class AdComment extends React.Component {
     },
   };
 
-  sentComment = async (e) => {
+  sendComment = async (e) => {
     e.preventDefault();
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/",
+        "https://striveschool-api.herokuapp.com/api/comments",
         {
           method: "POST",
           body: JSON.stringify(this.state.commentObj),
@@ -28,20 +28,25 @@ class AdComment extends React.Component {
       );
       if (response.ok) {
         alert("Comment was sent!");
+      } else {
+        console.log("error");
+        alert("something went wrong");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log("error");
+    }
   };
 
   render() {
     return (
       <div>
-        <Form onSubmit={this.sentComment}>
+        <Form onSubmit={this.sendComment}>
           <Form.Group>
             <Form.Label>Comment Text</Form.Label>
             <Form.Control
               type="text"
               placeholder="Add comment here"
-              value={this.state.commentObj.comment}
+              defaultValue={this.state.commentObj.comment}
               onChange={(e) =>
                 this.setState({
                   comment: {
