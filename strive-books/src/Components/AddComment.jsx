@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 class AdComment extends React.Component {
   state = {
@@ -9,10 +10,32 @@ class AdComment extends React.Component {
       elementId: this.props.asin,
     },
   };
+
+  sentComment = async (e) => {
+    e.preventDefault();
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/comments/",
+        {
+          method: "POST",
+          body: JSON.stringify(this.state.commentObj),
+          headers: {
+            "Content-type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4YThiODE2ZWY2MDAwMTVjZWQwNTUiLCJpYXQiOjE2MzIzMTU3ODksImV4cCI6MTYzMzUyNTM4OX0.5DMyLDm1BhaVjrBNllHevG_JWKkIIT8o2np1ZpuHMFw",
+          },
+        }
+      );
+      if (response.ok) {
+        alert("Comment was sent!");
+      }
+    } catch (error) {}
+  };
+
   render() {
     return (
       <div>
-        <Form>
+        <Form onSubmit={this.sentComment}>
           <Form.Group>
             <Form.Label>Comment Text</Form.Label>
             <Form.Control
@@ -49,6 +72,9 @@ class AdComment extends React.Component {
               <option>5</option>
             </Form.Control>
           </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
         </Form>
       </div>
     );
