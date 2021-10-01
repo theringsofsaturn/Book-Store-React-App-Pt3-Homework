@@ -46,10 +46,10 @@ class AdComment extends React.Component {
             <Form.Control
               type="text"
               placeholder="Add comment here"
-              defaultValue={this.state.commentObj.comment}
+              value={this.state.commentObj.comment}
               onChange={(e) =>
                 this.setState({
-                  comment: {
+                  commentObj: {
                     ...this.state.commentObj,
                     comment: e.target.value,
                   },
@@ -63,9 +63,9 @@ class AdComment extends React.Component {
               as="select"
               onChange={(e) =>
                 this.setState({
-                  comment: {
+                  commentObj: {
                     ...this.state.commentObj,
-                    rate: e.target.value,
+                    comment: e.target.value,
                   },
                 })
               }
